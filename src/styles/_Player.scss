@@ -13,7 +13,7 @@
 
     input {
         width: 100%;
-        padding: 1rem 2rem; //Top Bottom --- Left and Right
+        padding: 1rem 0rem; //Top Bottom --- Left and Right
     }
 
     p {
@@ -22,7 +22,6 @@
 }
 
 .play-control {
-    background-color: lightgreen;
     width: 30%;
     display: flex;
     justify-content: space-between;

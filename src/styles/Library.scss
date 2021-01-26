@@ -1,0 +1,65 @@
+.library {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20rem;
+    height: 100%;
+    box-shadow: 2px 2px 50px rgb(204, 204, 204);
+    overflow: scroll;
+    
+    h2 {
+        padding: 2rem;
+    }
+}
+
+.library-song {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem 1rem 2rem;
+    
+    img {
+        width: 30%;
+    }
+
+    &:hover {
+        background-color: rgb(222, 222, 255);
+    }
+}
+
+.library-song {
+    padding-left: 1rem;
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-size: 0.7rem;
+    }
+}
+
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(155, 155, 155, 0.5) transparent;
+}
+
+
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.7);
+    border-radius: 20px;
+    border: transparent;
+}
+
+.selected {
+    background-color: rgb(145, 165, 218);
+}
