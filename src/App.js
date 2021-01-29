@@ -1,5 +1,5 @@
 // Hooks
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 // SASS
 import "./styles/App.scss"
 // Util
@@ -8,6 +8,7 @@ import util from "./util"
 import Song from "./components/Song"
 import Player from "./components/Player"
 import Library from "./components/Library"
+import Nav from "./components/Nav"
 
 function App() {
   // Ref
@@ -20,6 +21,7 @@ function App() {
     currentTime: 0,
     duration: 0,
   });
+  const [LibraryStatus, setLibraryStatus] = useState(false);
 
   const timeUpdateHandler = (event) => {
     const current = event.target.currentTime;
@@ -29,9 +31,10 @@ function App() {
 
   return (
     <div className="App">
+      <Nav LibraryStatus={LibraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
-      <Player audioRef={audioRef} currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} songInfo={songInfo} setSongInfo={setSongInfo} />
-      <Library songs={songs} setCurrentSong={setCurrentSong} audioRef={audioRef} isPlaying={isPlaying} setSongs={setSongs} />
+      <Player songs={songs} setSongs={setSongs} audioRef={audioRef} currentSong={currentSong} setCurrentSong={setCurrentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} songInfo={songInfo} setSongInfo={setSongInfo} />
+      <Library songs={songs} setCurrentSong={setCurrentSong} audioRef={audioRef} isPlaying={isPlaying} setSongs={setSongs} LibraryStatus={LibraryStatus} />
       <audio onTimeUpdate={timeUpdateHandler} onLoadedMetadata={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
     </div>
   );
